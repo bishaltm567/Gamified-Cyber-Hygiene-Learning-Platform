@@ -1,0 +1,232 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install backend deps",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"C:\\cyberquest-tools\\backend-start.ps1"
+			],
+			"options": {
+				"cwd": "C:\\Users\\user\\Desktop\\Gamified Cyber Hygiene Learning Platform"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Run backend",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"C:\\cyberquest-tools\\backend-start.ps1"
+			],
+			"options": {
+				"cwd": "C:\\Users\\user\\Desktop\\Gamified Cyber Hygiene Learning Platform\\backend"
+			},
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install frontend deps",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"C:\\cyberquest-tools\\frontend-start.ps1"
+			],
+			"options": {
+				"cwd": "C:\\Users\\user\\Desktop\\Gamified Cyber Hygiene Learning Platform\\frontend"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Run frontend",
+			"type": "shell",
+			"command": "powershell.exe",
+			"args": [
+				"-NoProfile",
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"C:\\cyberquest-tools\\frontend-start.ps1"
+			],
+			"options": {
+				"cwd": "C:\\Users\\user\\Desktop\\Gamified Cyber Hygiene Learning Platform\\frontend"
+			},
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Check Python versions",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\python-check.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Check winget",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\check-winget.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install Python 3.12",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\install-python312.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Set up Python 3.12 venv",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\setup-venv312.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run backend server",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\backend-run.ps1",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Check backend health",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -Command \"Invoke-WebRequest -Uri 'http://localhost:8000/health' | Select-Object -ExpandProperty Content\"",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Validate backend health",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -Command \"Invoke-RestMethod -Uri 'http://localhost:8000/health' | ConvertTo-Json -Compress\"",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run backend tests",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -Command \"Set-Location 'C:\\Users\\user\\Desktop\\Gamified Cyber Hygiene Learning Platform\\backend'; & 'C:\\Users\\user\\Desktop\\Gamified Cyber Hygiene Learning Platform\\.venv\\Scripts\\python.exe' -m pytest -q\"",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run backend tests v2",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\run-pytest.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Print DB URL",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\print-db-url.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect DB schema",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\inspect-db-schema.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Run backend tests final",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\run-pytest.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install compatibility fix",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\install-compatibility-fix.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Install bcrypt fix",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\install-bcrypt-fix.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Reset local test DB",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\reset-test-db.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Debug login response",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\debug-login.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect demo users",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\inspect-demo-users.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Inspect bcrypt metadata",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\inspect-bcrypt.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Check bcrypt verify",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\check-bcrypt-verify.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Query users after startup",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\query-users-after-startup.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Verify auth flow",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\verify-auth-flow.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Check startup and login",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\check-startup.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Build frontend",
+			"type": "shell",
+			"command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\\cyberquest-tools\\build-frontend.ps1",
+			"isBackground": false,
+			"problemMatcher": []
+		}
+	]
+}
